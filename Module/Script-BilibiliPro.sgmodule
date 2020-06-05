@@ -1,6 +1,5 @@
-#!name=BilibiliPro, By Ivork
+#!name=Script-BilibiliPro, By Ivork
 #!desc=This Module forks from nzw9314.
-#!system=iOS
 
 [Rule]
 URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT

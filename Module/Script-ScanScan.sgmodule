@@ -1,4 +1,4 @@
-#!name=ScanScan, By Ivork
+#!name=Script-ScanScan, By Ivork
 
 [Script]
 ScanScan = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ScanScan.js,type=http-response,pattern=^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$

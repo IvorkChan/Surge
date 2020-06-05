@@ -1,4 +1,4 @@
-#!name=BilibiliAccount, By Ivork
+#!name=Script-BilibiliAccount, By Ivork
 
 [Script]
 BilibiliAccount = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/BilibiliAccount.js,type=http-response,pattern=https://ap(i|p).bilibili.com/x/v2/account/mine
