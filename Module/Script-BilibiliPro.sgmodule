@@ -1,0 +1,13 @@
+#!name=BilibiliPro, By Ivork
+#!desc=This Module forks from nzw9314.
+#!system=iOS
+
+[Rule]
+URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT
+URL-REGEX,https://api.bilibili.com/x/v2/dm/ad,REJECT
+
+[Script]
+BilibiliPro = type=http-response,pattern=https:\/\/ap(p|i)\.bilibili\.com\/((pgc\/player\/api\/playurl)|(x\/v2\/account\/myinfo\?)|(x\/v2\/account/mine\?)),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/Surge/master/Script/BiliHD.js
+
+[MITM]
+hostname = %APPEND% www.bilibili.com, api.bilibili.com, app.bilibili.com

@@ -1,0 +1,7 @@
+#!name=Termius, By Ivork
+
+[Script]
+Termius = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Termius.js,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/
+
+[MITM]
+hostname = %APPEND% api.termius.com

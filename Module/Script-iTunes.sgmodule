@@ -1,0 +1,7 @@
+#!name=iTunes, By Ivork
+
+[Script]
+iTunes = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iTunes.js,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
+
+[MITM]
+hostname = %APPEND% buy.itunes.apple.com
