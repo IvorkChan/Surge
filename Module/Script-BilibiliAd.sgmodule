@@ -1,4 +1,4 @@
-#!name=Script-BilibiliAd, By Ivork
+#!name=Script-BilibiliAd
 
 [Script]
 BilibiliAd = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/BilibiliAd.js,type=http-response,pattern=https://(app|api).bilibili.com/x/(v2\/(feed|rank|view\?a|reply\/main|search\/square?)|resource\/show\/tab)
