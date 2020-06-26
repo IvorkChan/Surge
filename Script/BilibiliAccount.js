@@ -57,7 +57,7 @@ body['data']['sections_v2'] = [
     },
     
     {
-      //"title": "其它设置",
+      //"title": "设置",
       "items": [
         {
           "id": 410,
