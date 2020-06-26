@@ -72,7 +72,7 @@ if (-1 != $request.url.indexOf('/x/v2/reply/main') && 0 == body['code']) {
 // 标签
 if (-1 != $request.url.indexOf('resource/show/tab?') && 0 == body['code']) {
     body['data']['bottom'] = body['data']['bottom'].filter(function (item) {
-        return item.id != 180 && item.id != 179 && item.id != 181
+        return item.id != 180 && item.id != 179
     });
     body['data']['tab'] = body['data']['tab'].filter(function (item) {
         return item.id != 39 && item.id != 151 && item.id != 51079 && item.id != 38247 && item.id != 65397 
