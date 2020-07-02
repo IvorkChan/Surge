@@ -39,7 +39,7 @@ body['data']['sections_v2'] = [
       "items": [
         {
           "need_login": 1,
-          "display": 1,
+          "display": 0,
           "id": 171,
           "title": "创作首页",
           "global_red_dot": 1,
@@ -60,6 +60,7 @@ body['data']['sections_v2'] = [
       //"title": "设置",
       "items": [
         {
+          "display": 0;
           "id": 410,
           "title": "设置",
           "icon": "http://i0.hdslb.com/bfs/archive/e932404f2ee62e075a772920019e9fbdb4b5656a.png",
