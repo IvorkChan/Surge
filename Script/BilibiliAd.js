@@ -88,7 +88,7 @@ if (-1 != $request.url.indexOf('/x/v2/account/mine') && 0 == body['code']) {
     body['data']['vip_section_v2'] = {};
     body['data']['sections'] = body['data']['sections'].filter(
         function (item, index) {
-            if ('创作中心' == item.title) {
+            if ('创作中心', '推荐服务'== item.title) {
                 return false;
             }
             item.items = item.items.filter(function (section_items) {
