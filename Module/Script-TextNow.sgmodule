@@ -1,0 +1,7 @@
+#!name=Script-TextNow
+
+[Script]
+TextNow = type=http-response,pattern=^https:\/\/api\.textnow\.me\/api2.0\/users\/.*,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/TextNow.js
+
+[MITM]
+hostname = %APPEND% api.textnow.me
