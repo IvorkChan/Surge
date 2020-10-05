@@ -1,5 +1,4 @@
-#!name=Script-Weibo
-#!desc=This Module forks from lhie1.
+#!name=Script-WeiboAd
 
 [Script]
 http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js
