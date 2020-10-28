@@ -1,7 +1,7 @@
 #!name=Script-Bilibili
 
 [Script]
-BilibiliAd = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/BilibiliAd.js,type=http-response,pattern=https://(app|api).bilibili.com/x/(v2\/(feed|rank|view\?a|reply\/main|account\/mine|search\/square?)|resource\/show\/tab)
+BilibiliAd = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Bilibili.js,type=http-response,pattern=https://(app|api).bilibili.com/x/(v2\/(feed|rank|view\?a|reply\/main|account\/mine|search\/square?)|resource\/show\/tab)
 
 [MITM]
 hostname = %APPEND% api.bilibili.com, app.bilibili.com
