@@ -90,9 +90,9 @@ if (-1 != $request.url.indexOf('/x/v2/account/mine') && 0 == body['code']) {
             if (['创作中心', '创作首页', '创作学院', '打卡挑战', '有奖活动'].includes(item.title)) {
                 return false;
             }
-            item.items = item.items.filter(function (section_v2_items) {
-                console.log(section_v2_items.title);
-                if ((['推荐服务', '我的课程', '看视频免流量', '个性装扮', '邀好友赚红包', '游戏中心', '我的钱包', '会员购中心', '直播中心', '反馈论坛', '充能领福利', '课堂模式', '青少年模式'].includes(section_v2_items.title))) {
+            item.items = item.items.filter(function (sections_v2_items) {
+                console.log(sections_v2_items.title);
+                if ((['推荐服务', '我的课程', '看视频免流量', '个性装扮', '邀好友赚红包', '游戏中心', '我的钱包', '会员购中心', '直播中心', '反馈论坛', '充能领福利', '课堂模式', '青少年模式'].includes(sections_v2_items.title))) {
                     return false;
                 }
                 return true;
