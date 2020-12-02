@@ -1,5 +1,9 @@
 #!name=Script-Bilibili
 
+[Rule]
+URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT
+URL-REGEX,https://api.bilibili.com/x/v2/dm/ad,REJECT
+
 [Script]
 BilibiliAd = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Bilibili.js,type=http-response,pattern=https://(app|api).bilibili.com/x/(v2\/(feed|rank|view\?a|reply\/main|account\/mine|search\/square?)|resource\/show\/tab)
 
