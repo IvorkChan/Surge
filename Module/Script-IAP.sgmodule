@@ -5,6 +5,7 @@
 
 [Script]
 Airmail = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Airmail.js,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$)
+ColorfulWeather = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ColorfulWeather.js,type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather
 Drafts = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Drafts.js,type=http-response,pattern=https:\/\/backend\.getdrafts\.com\/api\/.*\/verification*
 Fantastical = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Fantastical.js,type=http-response,pattern=^https:\/\/api\.flexibits\.com\/v1\/(auth|account)\/(device|details|appstore-receipt)\/$
 ScanScan = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ScanScan.js,type=http-response,pattern=^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$
@@ -12,4 +13,4 @@ Termius = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.c
 TextNow = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/TextNow.js,type=http-response,pattern=^https:\/\/api\.textnow\.me\/api2.0\/users\/.*
 
 [MITM]
-hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me
+hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com
