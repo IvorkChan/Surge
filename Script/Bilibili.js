@@ -1,6 +1,6 @@
-const up_blacklist = ['共青团中央'];
-const title_blackwords = ['刘雨昕','陆柯燃','沙雕'];
-const region_blacklist = ['宅舞','翻唱'];
+const up_blacklist = [];
+const title_blackwords = [];
+const region_blacklist = [];
 let body = $response.body;
 console.log($request.url)
 console.log(body)
@@ -72,7 +72,7 @@ if (-1 != $request.url.indexOf('/x/v2/reply/main') && 0 == body['code']) {
 // 标签
 if (-1 != $request.url.indexOf('resource/show/tab?') && 0 == body['code']) {
     body['data']['bottom'] = body['data']['bottom'].filter(function (item) {
-        return item.id != 179 && item.id != 180 && item.id != 181
+        return item.id != 179 && item.id != 180
     });
     body['data']['tab'] = body['data']['tab'].filter(function (item) {
         return item.id != 39 && item.id != 151 && item.id != 51079 && item.id != 38247 && item.id != 65397 
