@@ -1,0 +1,15 @@
+#!name=Script-IAP
+
+[URL Rewrite]
+^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/AdGuard.rsp 302
+
+[Script]
+Airmail = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Airmail.js,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$)
+Drafts = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Drafts.js,type=http-response,pattern=https:\/\/backend\.getdrafts\.com\/api\/.*\/verification*
+Fantastical = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Fantastical.js,type=http-response,pattern=^https:\/\/api\.flexibits\.com\/v1\/(auth|account)\/(device|details|appstore-receipt)\/$
+ScanScan = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ScanScan.js,type=http-response,pattern=^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$
+Termius = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Termius.js,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/
+TextNow = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/TextNow.js,type=http-response,pattern=^https:\/\/api\.textnow\.me\/api2.0\/users\/.*
+
+[MITM]
+hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me
