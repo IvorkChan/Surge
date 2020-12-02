@@ -5,17 +5,17 @@ obj["subscriber"]["subscriptions"]= {
         "period_type": "active",
         "billing_issues_detected_at": null,
         "unsubscribe_detected_at": null,
-        "expires_date": "2099-12-01T03:51:32Z",
-        "original_purchase_date": "2019-10-31T02:51:33Z",
-        "purchase_date": "2019-10-31T02:51:32Z",
+        "expires_date": "2050-01-01T00:00:00Z",
+        "original_purchase_date": "2020-01-01T00:00:00Z",
+        "purchase_date": "2020-01-01T00:00:00Z",
         "store": "app_store"
       }
     };
 obj["subscriber"]["entitlements"]= {
       "pro": {
-        "expires_date": "2099-12-01T03:51:32Z",
+        "expires_date": "2050-01-01T00:00:00Z",
         "product_identifier": "revenuecat.pro.yearly",
-        "purchase_date": "2019-10-31T02:51:32Z"
+        "purchase_date": "2020-01-01T00:00:00Z"
       }
     };
 $done({body: JSON.stringify(obj)});
