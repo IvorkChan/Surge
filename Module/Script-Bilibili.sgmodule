@@ -6,7 +6,7 @@ URL-REGEX,https://api.bilibili.com/x/v2/dm/ad,REJECT
 
 [Script]
 BilibiliAd = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Bilibili.js,type=http-response,pattern=https://(app|api).bilibili.com/x/(v2\/(feed|rank|view\?a|reply\/main|account\/mine|search\/square?)|resource\/show\/tab)
-BilibiliMy = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/v2/account/mine\?access_key,debug=1,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20account.js
+BilibiliMy = type=http-response,requires-body=1,max-size=0,pattern=https://app.bilibili.com/x/v2/account/mine\?access_key,debug=1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/BilibiliMy.js
 
 [MITM]
 hostname = %APPEND% api.bilibili.com, app.bilibili.com
