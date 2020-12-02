@@ -1,7 +1,0 @@
-#!name=Script-WorkingCopy
-
-[Script]
-WorkingCopy = type=http-response,pattern=^https:\/\/education\.github\.com\/api\/user$,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/WorkingCopy.js
-
-[MITM]
-hostname = %APPEND% education.github.com
