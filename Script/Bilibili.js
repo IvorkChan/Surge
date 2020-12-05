@@ -72,13 +72,12 @@ if (-1 != $request.url.indexOf('/x/v2/reply/main') && 0 == body['code']) {
 // 标签
 if (-1 != $request.url.indexOf('resource/show/tab?') && 0 == body['code']) {
     body['data']['bottom'] = body['data']['bottom'].filter(function (item) {
-        return item.id != 179 && item.id != 180
+        return item.id != 101 && item.id != 179 && item.id != 180
     });
     body['data']['tab'] = body['data']['tab'].filter(function (item) {
-        return item.id != 39 && item.id != 151 && item.id != 51079 && item.id != 38247 && item.id != 65397 
-    && item.id != 62192 && item.id != 536});
+        return item.id != 39 && item.id != 101 && item.id != 104 && item.id != 151 && item.id != 442 && item.id != 536 && item.id != 38247 && item.id != 51079});
     body['data']['top'] = body['data']['top'].filter(function (item) {
-        return item.id != 222});
+        return item.id != 107 && item.id != 108 && item.id != 222});
 }
 
 // 我的
