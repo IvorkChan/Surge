@@ -4,7 +4,9 @@
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/AdGuard.rsp 302
 
 [Script]
+GeneralIAP = requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/GeneralIAP.js,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$|^https:\/\/www2\.https-proxy\.me\/verify$
 Airmail = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Airmail.js,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$)
+AltStore = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/AltStore.js,type=http-response,pattern=^https:\/\/www\.patreon\.com\/api\/oauth2\/v2\/identity
 ColorfulWeather = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ColorfulWeather.js,type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather
 Drafts = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Drafts.js,type=http-response,pattern=https:\/\/backend\.getdrafts\.com\/api\/.*\/verification*
 Fantastical = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Fantastical.js,type=http-response,pattern=^https:\/\/api\.flexibits\.com\/v1\/(auth|account)\/(device|details|appstore-receipt)\/$
@@ -13,4 +15,4 @@ Termius = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.c
 TextNow = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/TextNow.js,type=http-response,pattern=^https:\/\/api\.textnow\.me\/api2.0\/users\/.*
 
 [MITM]
-hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com
+hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com, www.patreon.com
