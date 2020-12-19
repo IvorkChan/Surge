@@ -13,6 +13,7 @@ Fantastical = requires-body=1,max-size=0,script-path=https://raw.githubuserconte
 ScanScan = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ScanScan.js,type=http-response,pattern=^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$
 Termius = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Termius.js,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/
 TextNow = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/TextNow.js,type=http-response,pattern=^https:\/\/api\.textnow\.me\/api2.0\/users\/.*
+Adobe = type=http-response,pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/photoshop.js,script-update-interval=0
 
 [MITM]
-hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com, www.patreon.com
+hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com, www.patreon.com, lcs-mobile-cops.adobe.io
