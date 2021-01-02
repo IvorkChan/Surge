@@ -1,4 +1,5 @@
-#!name=Plugin-AiSearch
+#!name=AiSearch
+#!desc=Change Search Engine in Safari
 
 # gh: GitHub 
 # gm: Google Image

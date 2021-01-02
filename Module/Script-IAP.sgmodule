@@ -1,10 +1,11 @@
-#!name=Script-IAP
+#!name=iAP
+#!desc=Unlock IAP
 
 [URL Rewrite]
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/AdGuard.rsp 302
 
 [Script]
-GeneralIAP = requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/GeneralIAP.js,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$|^https:\/\/www2\.https-proxy\.me\/verify$
+verifyReceipt = requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/verifyReceipt.js,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$|^https:\/\/www2\.https-proxy\.me\/verify$
 Airmail = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Airmail.js,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$)
 AltStore = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/AltStore.js,type=http-response,pattern=^https:\/\/www\.patreon\.com\/api\/oauth2\/v2\/identity
 ColorfulWeather = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/ColorfulWeather.js,type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather
