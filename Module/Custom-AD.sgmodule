@@ -1,0 +1,8 @@
+#!name=AdCus
+#!desc=Customized Rulesets for Advertising
+
+[Rule]
+# Advertisement
+DOMAIN-SET,https://raw.githubusercontent.com/IvorkChan/Surge/master/Rule/Ad.txt,AD
+RULE-SET,https://raw.githubusercontent.com/IvorkChan/Surge/master/Rule/AdAdd.txt,AD
+DOMAIN-SET,https://raw.githubusercontent.com/IvorkChan/Surge/master/Rule/AdPlus.txt,AD
