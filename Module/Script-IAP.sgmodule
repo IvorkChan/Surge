@@ -17,7 +17,7 @@ TextNow = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.
 Adobe = type=http-response,pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Adobe.js,script-update-interval=0
 Musixmatch = type=http-response,pattern=^https:\/\/apic\.musixmatch\.com\/ws\/.*\/config\.get,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Musixmatch.js,script-update-interval=0
 Documents = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.*\/documents\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Documents.js,script-update-interval=0
-VSCO = type=http-response,pattern=^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/vsco.js,script-update-interval=0
+VSCO = type=http-response,pattern=^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/VSCO.js,script-update-interval=0
 
 [MITM]
 hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com, www.patreon.com, lcs-mobile-cops.adobe.io, apic.musixmatch.com, license.pdfexpert.com, vsco.co
