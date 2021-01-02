@@ -1,5 +1,5 @@
-#!name=AdCus
-#!desc=Customized Rulesets for Advertising
+#!name=aCus
+#!desc=Customized Rulesets for Blocking Advertisement
 
 [Rule]
 # Advertisement

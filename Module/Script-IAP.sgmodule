@@ -1,5 +1,5 @@
 #!name=iAP
-#!desc=Unlock IAP
+#!desc=Crack IAP by Scripts
 
 [URL Rewrite]
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/AdGuard.rsp 302

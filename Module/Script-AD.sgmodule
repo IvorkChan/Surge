@@ -1,5 +1,5 @@
 #!name=iAA
-#!desc=Remove Advertisements in Apps
+#!desc=Remove Advertisement in Apps
 
 [Rule]
 URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT
