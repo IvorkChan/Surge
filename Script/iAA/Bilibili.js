@@ -75,7 +75,7 @@ if (-1 != $request.url.indexOf('resource/show/tab?') && 0 == body['code']) {
         return item.id != 101 && item.id != 104 && item.id != 105 && item.id != 179 && item.id != 180
     });
     body['data']['tab'] = body['data']['tab'].filter(function (item) {
-        return item.id != 39 && item.id != 101 && item.id != 104 && item.id != 151 && item.id != 442 && item.id != 536 && item.id != 38247 && item.id != 51079});
+        return item.id != 39 && item.id != 101 && item.id != 104 && item.id != 151 && item.id != 442 && item.id != 536 && item.id != 38247 && item.id != 51079 && item.id != 5878});
     body['data']['top'] = body['data']['top'].filter(function (item) {
         return item.id != 107 && item.id != 108 && item.id != 222});
 }
