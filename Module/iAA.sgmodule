@@ -1,5 +1,5 @@
 #!name=iAA
-#!desc=Remove Advertisement in Apps
+#!desc=Remove Advertisements in Apps.
 
 [Rule]
 DOMAIN-SUFFIX,cm.bilibili.com,REJECT
