@@ -247,16 +247,9 @@ function realtimeWeather() {
   $.notify(
     `${address.district} ${address.street}`,
     `${mapSkycon(realtime.skycon)[0]}，${realtime.temperature}℃`,
-    `${keypoint}
-体感温度${realtime.apparent_temperature}℃
-空气湿度${(realtime.humidity * 100).toFixed(0)}%
-紫外强度${realtime.life_index.ultraviolet.desc}
-${mapWind(
-      realtime.wind.speed,
-      realtime.wind.direction
-    )}
-${alertInfo}${hourlySkycon}
-`,
+    `${keypoint}。
+
+ ${alertInfo}${hourlySkycon}`,
     {
       "media-url": `${mapSkycon(realtime.skycon)[1]}`,
     }
