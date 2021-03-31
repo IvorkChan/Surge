@@ -1,18 +1,5 @@
-/**
-彩云天气 v0.1 alpha
-@author: Peng-YM
-更新地址：https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/caiyun.js
- *
-功能：
-√ 自动定位
-√ 异常天气预警
-√ 实时天气预报
-TODO:
-- 降雨提醒
-- 每日睡前预报
-配置：
-1️⃣ 配置自动定位
-根据平台添加如下配置
+/*
+01. 配置自动定位：
 (1). Quantumult X
 [MITM]
 hostname=weather-data.apple.com, api.weather.com
@@ -28,12 +15,12 @@ http-request https:\/\/((weather-data\.apple)|(api.weather))\.com script-path=ht
 hostname=weather-data.apple.com, api.weather.com
 [Script]
 type=http-request, pattern=https:\/\/((weather-data\.apple)|(api.weather))\.com, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/caiyun.js, require-body=false
-2️⃣ 打开手机设置 > 隐私 > 定位服务
-(1) 打开定位服务
-(2) 选择天气，设置永远允许天气访问位置信息，并允许使用精确位置。
-此时，打开系统天气应用，会提示获取位置成功，如果没有提示，请确认1️⃣是否配置正确。
-3️⃣ 配置cron任务如：10 8-22/2 * * *
-4️⃣ 打开box.js设置彩云令牌(不是链接！！！）即可。
+
+02. 打开定位服务。
+
+03. 配置Cron任务。
+
+04. 使用BoxJS设置API。
 */
 
 /********************** SCRIPT START *********************************/
@@ -57,8 +44,8 @@ if (typeof $request !== "undefined") {
   if (res === null) {
     $.notify(
       "[彩云天气]",
-      "❌ 正则表达式匹配错误",
-      `🥬 无法从URL: ${url} 获取位置。`
+      "正则表达式匹配错误。",
+      `无法从URL: ${url} 获取位置。`
     );
     $.done({ body: $request.body });
   }
@@ -67,7 +54,7 @@ if (typeof $request !== "undefined") {
     longitude: res[2],
   };
   if (!$.read("location")) {
-    $.notify("[彩云天气]", "", "🎉🎉🎉 获取定位成功。");
+    $.notify("[彩云天气]", "", "获取定位成功。");
   }
   if (display_location) {
     $.info(
@@ -86,17 +73,17 @@ if (typeof $request !== "undefined") {
     const { caiyun, tencent } = $.read("token") || {};
 
     if (!caiyun) {
-      throw new ERR.TokenError("❌ 未找到彩云Token令牌");
+      throw new ERR.TokenError("未找到彩云Token令牌。");
     } else if (caiyun.indexOf("http") !== -1) {
-      throw new ERR.TokenError("❌ Token令牌 并不是 一个链接！");
+      throw new ERR.TokenError("Token令牌并不是链接！");
     } else if (!tencent) {
-      throw new ERR.TokenError("❌ 未找到腾讯地图Token令牌");
+      throw new ERR.TokenError("未找到腾讯地图Token令牌。");
     } else if (!$.read("location")) {
       // no location
       $.notify(
         "[彩云天气]",
-        "❌ 未找到定位",
-        "🤖 您可能没有正确设置MITM，请检查重写是否成功。"
+        "未找到定位。",
+        "您可能没有正确设置MITM，请检查重写是否成功。"
       );
     } else {
       await scheduler();
@@ -107,12 +94,12 @@ if (typeof $request !== "undefined") {
         $.notify(
           "[彩云天气]",
           err.message,
-          "🤖 由于API Token具有时效性，请前往\nhttps://t.me/cool_scripts\n获取最新Token。",
+          "由于API Token具有时效性，请获取最新Token。",
           {
             "open-url": "https://t.me/cool_scripts",
           }
         );
-      else $.notify("[彩云天气]", "❌ 出现错误", JSON.stringify(err, Object.getOwnPropertyNames(err)));
+      else $.notify("[彩云天气]", "出现错误", JSON.stringify(err, Object.getOwnPropertyNames(err)));
     })
     .finally(() => $.done());
 }
@@ -136,12 +123,12 @@ async function query() {
   $.info(location);
   const isNumeric = (input) => input && !isNaN(input);
   if (!isNumeric(location.latitude) || !isNumeric(location.longitude)) {
-    throw new Error("❌ 经纬度设置错误！");
+    throw new Error("经纬度设置错误！");
   }
 
   if (Number(location.latitude) > 90 || Number(location.longitude) > 180) {
     throw new Error(
-      "🤖 地理小课堂：经度的范围是0~180，纬度是0~90哦。请仔细检查经纬度是否设置正确。"
+      "请仔细检查经纬度是否设置正确。"
     );
   }
   // query API
@@ -185,7 +172,7 @@ async function query() {
       .then((resp) => {
         const body = JSON.parse(resp.body);
         if (body.status !== 0) {
-          throw new ERR.TokenError("❌ 腾讯地图Token错误");
+          throw new ERR.TokenError("腾讯地图Token错误");
         }
         return body.result.address_component;
       })
@@ -259,14 +246,14 @@ function realtimeWeather() {
 
   $.notify(
     `[彩云天气] ${address.city} ${address.district} ${address.street}`,
-    `${mapSkycon(realtime.skycon)[0]} ${realtime.temperature} ℃  🌤 空气质量 ${
+    `${mapSkycon(realtime.skycon)[0]} ${realtime.temperature} ℃  空气质量 ${
       realtime.air_quality.description.chn
     }`,
-    `🔱 ${keypoint}
-🌡 体感${realtime.life_index.comfort.desc} ${
+    `${keypoint}
+体感温度${realtime.life_index.comfort.desc} ${
       realtime.apparent_temperature
-    } ℃  💧 湿度 ${(realtime.humidity * 100).toFixed(0)}%
-🌞 紫外线 ${realtime.life_index.ultraviolet.desc} 💨 ${mapWind(
+    } ℃  空气湿度 ${(realtime.humidity * 100).toFixed(0)}%
+紫外强度 ${realtime.life_index.ultraviolet.desc} 风速风向${mapWind(
       realtime.wind.speed,
       realtime.wind.direction
     )}
@@ -289,17 +276,17 @@ function mapAlertCode(code) {
     "03": "❄️ 暴雪",
     "04": "❄ 寒潮",
     "05": "💨 大风",
-    "06": "💨 沙尘暴",
+    "06": "💨 沙尘",
     "07": "☄️ 高温",
     "08": "☄️ 干旱",
     "09": "⚡️ 雷电",
     "10": "💥 冰雹",
     "11": "❄️ 霜冻",
     "12": "💨 大雾",
-    "13": "💨 霾",
-    "14": "❄️ 道路结冰",
-    "15": "🔥 森林火灾",
-    "16": "⛈ 雷雨大风",
+    "13": "💨 大霾",
+    "14": "❄️ 结冰",
+    "15": "🔥 火灾",
+    "16": "⛈ 雷雨",
   };
 
   const intensity = {
@@ -323,7 +310,7 @@ function mapWind(speed, direction) {
   } else if (speed <= 5) {
     description = "1级 微风徐徐";
   } else if (speed <= 11) {
-    description = "2级 清风";
+    description = "2级 清风徐徐";
   } else if (speed <= 19) {
     description = "3级 树叶摇摆";
   } else if (speed <= 28) {
@@ -343,13 +330,13 @@ function mapWind(speed, direction) {
   } else if (speed <= 117) {
     description = "11级 暴风毁树";
   } else if (speed <= 133) {
-    description = "12级 飓风";
+    description = "12级 飓风来临";
   } else if (speed <= 149) {
-    description = "13级 台风";
+    description = "13级 台风来临";
   } else if (speed <= 166) {
-    description = "14级 强台风";
+    description = "14级 极强台风";
   } else if (speed <= 183) {
-    description = "15级 强台风";
+    description = "15级 极强台风";
   } else if (speed <= 201) {
     description = "16级 超强台风";
   } else if (speed <= 220) {
@@ -398,73 +385,73 @@ function mapWind(speed, direction) {
 function mapSkycon(skycon) {
   const map = {
     CLEAR_DAY: [
-      "☀️ 日间晴朗",
+      "日间晴朗",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/CLEAR_DAY.gif",
     ],
     CLEAR_NIGHT: [
-      "✨ 夜间晴朗",
+      "夜间晴朗",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/CLEAR_NIGHT.gif",
     ],
     PARTLY_CLOUDY_DAY: [
-      "⛅️ 日间多云",
+      "日间多云",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/PARTLY_CLOUDY_DAY.gif",
     ],
     PARTLY_CLOUDY_NIGHT: [
-      "☁️ 夜间多云",
+      "夜间多云",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/PARTLY_CLOUDY_NIGHT.gif",
     ],
     CLOUDY: [
-      "☁️ 阴",
+      "阴",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/CLOUDY.gif",
     ],
     LIGHT_HAZE: [
-      "😤 轻度雾霾",
+      "轻度雾霾",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/HAZE.gif",
     ],
     MODERATE_HAZE: [
-      "😤 中度雾霾",
+      "中度雾霾",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/HAZE.gif",
     ],
     HEAVY_HAZE: [
-      "😤 重度雾霾",
+      "重度雾霾",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/HAZE.gif",
     ],
     LIGHT_RAIN: [
-      "💧 小雨",
+      "小雨",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/LIGHT.gif",
     ],
     MODERATE_RAIN: [
-      "💦 中雨",
+      "中雨",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/MODERATE_RAIN.gif",
     ],
     HEAVY_RAIN: [
-      "🌧 大雨",
+      "大雨",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/STORM_RAIN.gif",
     ],
     STORM_RAIN: [
-      "⛈ 暴雨",
+      "暴雨",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/STORM_RAIN.gif",
     ],
     LIGHT_SNOW: [
-      "🌨 小雪",
+      "小雪",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/LIGHT_SNOW.gif",
     ],
     MODERATE_SNOW: [
-      "❄️ 中雪",
+      "中雪",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/MODERATE_SNOW.gif",
     ],
     HEAVY_SNOW: [
-      "☃️ 大雪",
+      "大雪",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/HEAVY_SNOW.gif",
     ],
     STORM_SNOW: [
-      "⛄️暴雪",
+      "暴雪",
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/HEAVY_SNOW",
     ],
-    FOG: ["🌫️ 雾"],
-    DUST: ["💨 浮尘"],
-    SAND: ["💨 沙尘"],
-    WIND: ["🌪 大风"],
+    FOG: ["有雾"],
+    DUST: ["浮尘"],
+    SAND: ["沙尘"],
+    WIND: ["大风"],
   };
   return map[skycon];
 }
