@@ -233,7 +233,7 @@ function realtimeWeather() {
 
   const hourly = data.hourly;
 
-  let hourlySkycon = "[未来3小时]\n";
+  let hourlySkycon = "未来三小时：\n";
   for (let i = 0; i < 3; i++) {
     const skycon = hourly.skycon[i];
     const dt = new Date(skycon.datetime);
@@ -246,12 +246,12 @@ function realtimeWeather() {
 
   $.notify(
     `${address.district} ${address.street}`,
-    `${mapSkycon(realtime.skycon)[0]} ${realtime.temperature}℃`,
+    `${mapSkycon(realtime.skycon)[0]}，${realtime.temperature}℃`,
     `${keypoint}
-体感温度${realtime.life_index.comfort.desc} ${
-      realtime.apparent_temperature
-    } ℃  空气湿度 ${(realtime.humidity * 100).toFixed(0)}%
-紫外强度 ${realtime.life_index.ultraviolet.desc} 风速风向${mapWind(
+体感温度${realtime.apparent_temperature}℃
+空气湿度${(realtime.humidity * 100).toFixed(0)}%
+紫外强度${realtime.life_index.ultraviolet.desc}
+${mapWind(
       realtime.wind.speed,
       realtime.wind.direction
     )}
