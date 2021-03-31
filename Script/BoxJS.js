@@ -1,13 +1,13 @@
 {
-  "id": "ivork.bosjs",
-  "name": "Ivork BoxJS App",
-  "author": "@Ivork",
-  "icon": "https://avatars.githubusercontent.com/u/19368630?s=60&v=4",
+  "id": "ivork.app.sub",
+  "name": "Ivork App",
+  "author": "@ivork",
+  "icon": "https://avatars.githubusercontent.com/u/19368630?v=4",
   "repo": "https://github.com/IvorkChan/Surge",
-  "apps": [  
+  "apps": [
     {
-      "id": "Caiyun",
-      "name": "彩云天气",
+      "id": "ivork.weather",
+      "name": "Weather",
       "keys": [
         "@caiyun.token.caiyun",
         "@caiyun.token.tencent",
@@ -24,7 +24,7 @@
           "type": "text",
           "autoGrow": false,
           "rows": 2,
-          "desc": "彩云天气的Token，可以自行申请或者前往频道获取"
+          "desc": "Token"
         },
         {
           "id": "@caiyun.token.tencent",
@@ -56,83 +56,13 @@
           "desc": "经度，可以关闭MITM获取位置，手动设置"
         }
       ],
-      "author": "@Peng-YM",
-      "repo": "https://github.com/Peng-YM/QuanX",
+      "author": "@Ivork",
+      "repo": "https://github.com/IvorkChan/Surge",
       "icons": [
         "https://raw.githubusercontent.com/Orz-3/mini/master/caiyun.png",
         "https://raw.githubusercontent.com/Orz-3/task/master/caiyun.png"
       ],
-      "script": "https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/caiyun.js"
-    },  
-      ],
-      "icons": [
-        "https://github.com/Peng-YM/QuanX/blob/master/assets/icons/Surge_run_transparent.png?raw=true",
-        "https://github.com/Peng-YM/QuanX/blob/master/assets/icons/Surge_run.png?raw=true"
-      ]
+      "script": "https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/Cron/Colorful.js"
     },
-    {
-      "id": "github-private-repo",
-      "name": "Github私有仓库",
-      "keys": [
-        "@github_private_repo.username",
-        "@github_private_repo.token"
-      ],
-      "author": "@Peng-YM",
-      "repo": "https://github.com/Peng-YM/QuanX",
-      "settings": [
-        {
-          "id": "@github_private_repo.username",
-          "name": "Github用户名",
-          "val": "",
-          "type": "text",
-          "desc": "你的Github用户名"
-        },
-        {
-          "id": "@github_private_repo.token",
-          "name": "Github仓库的Token",
-          "val": "",
-          "type": "text",
-          "desc": "请参照脚本说明生成token，否则无法访问！"
-        }
-      ],
-      "icons": [
-        "https://raw.githubusercontent.com/58xinian/icon/master/Github_mini.png",
-        "https://raw.githubusercontent.com/58xinian/icon/master/Github.png"
-      ]
-    },
-    {
-      "id": "next-dns",
-      "name": "NextDNS",
-      "author": "@Peng-YM",
-      "repo": "https://github.com/Peng-YM/Sub-Store",
-      "keys": [],
-      "settings": [
-        {
-          "id": "@NextDNS.url",
-          "name": "NextDNS绑定URL",
-          "val": "",
-          "type": "text",
-          "desc": "NextDNS配置页面 > 已绑定的IP > 显示高级选项 > 最下面一行链接"
-        },
-        {
-          "id": "@NextDNS.servers",
-          "name": "DNS服务器",
-          "val": "",
-          "type": "text",
-          "desc": "NextDNS配置页面 > 已绑定的IP > DNS服务器，注意需要用英文逗号分隔。"
-        },
-        {
-          "id": "@NextDNS.silence",
-          "name": "静默运行",
-          "val": false,
-          "type": "boolean",
-          "desc": "打开后DNS绑定时不显示通知"
-        }
-      ],
-      "icons": [
-        "https://raw.githubusercontent.com/58xinian/icon/master/telegram_mini.png",
-        "https://raw.githubusercontent.com/58xinian/icon/master/telegram.png"
-      ]
-    }
   ]
 }
