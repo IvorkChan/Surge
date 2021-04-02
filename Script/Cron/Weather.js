@@ -42,9 +42,8 @@ if (typeof $request !== "undefined") {
     url.match(/geocode\/([0-9.]*)\/([0-9.]*)\//) ||
     url.match(/geocode=([0-9.]*),([0-9.]*)/);
   if (res === null) {
-    $.notify(
-      "[彩云天气]",
-      "正则表达式匹配错误。",
+    $.notify(     
+      `正则表达式匹配错误。`,
       `无法从URL: ${url} 获取位置。`
     );
     $.done({ body: $request.body });
@@ -54,11 +53,11 @@ if (typeof $request !== "undefined") {
     longitude: res[2],
   };
   if (!$.read("location")) {
-    $.notify("[彩云天气]", "", "获取定位成功。");
+    $.notify(`获取定位成功。`);
   }
   if (display_location) {
     $.info(
-      `成功获取当前位置：纬度 ${location.latitude} 经度 ${location.longitude}`
+      `成功获取定位：纬度 ${location.latitude} 经度 ${location.longitude}`
     );
   }
 
@@ -73,17 +72,16 @@ if (typeof $request !== "undefined") {
     const { caiyun, tencent } = $.read("token") || {};
 
     if (!caiyun) {
-      throw new ERR.TokenError("未找到彩云Token令牌。");
+      throw new ERR.TokenError("未找到彩云天气Token。");
     } else if (caiyun.indexOf("http") !== -1) {
-      throw new ERR.TokenError("Token令牌并不是链接！");
+      throw new ERR.TokenError("Token并不是链接。");
     } else if (!tencent) {
-      throw new ERR.TokenError("未找到腾讯地图Token令牌。");
+      throw new ERR.TokenError("未找到腾讯地图Token。");
     } else if (!$.read("location")) {
       // no location
       $.notify(
-        "[彩云天气]",
-        "未找到定位。",
-        "您可能没有正确设置MITM，请检查重写是否成功。"
+        `未找到定位。`,
+        `未正确设置MITM，请检查重写是否成功。`
       );
     } else {
       await scheduler();
@@ -92,14 +90,13 @@ if (typeof $request !== "undefined") {
     .catch((err) => {
       if (err instanceof ERR.TokenError)
         $.notify(
-          "[彩云天气]",
           err.message,
-          "由于API Token具有时效性，请获取最新Token。",
+          `Token具有时效性。`,
           {
             "open-url": "https://t.me/cool_scripts",
           }
         );
-      else $.notify("[彩云天气]", "出现错误", JSON.stringify(err, Object.getOwnPropertyNames(err)));
+      else $.notify(`出现错误`, JSON.stringify(err, Object.getOwnPropertyNames(err)));
     })
     .finally(() => $.done());
 }
@@ -123,12 +120,12 @@ async function query() {
   $.info(location);
   const isNumeric = (input) => input && !isNaN(input);
   if (!isNumeric(location.latitude) || !isNumeric(location.longitude)) {
-    throw new Error("经纬度设置错误！");
+    throw new Error("经纬度设置错误。");
   }
 
   if (Number(location.latitude) > 90 || Number(location.longitude) > 180) {
     throw new Error(
-      "请仔细检查经纬度是否设置正确。"
+      "检查经纬度设置。"
     );
   }
   // query API
@@ -198,7 +195,7 @@ function weatherAlert() {
     data.content.forEach((alert) => {
       if (alerted.indexOf(alert.alertId) === -1) {
         $.notify(
-          `[彩云天气] ${address.city} ${address.district} ${address.street}`,
+          `${address.city} ${address.district} ${address.street}`,
           alert.title,
           alert.description
         );
@@ -372,7 +369,6 @@ function mapWind(speed, direction) {
 }
 
 // 天气状况 --> 自然语言描述
-// icon来源：github@58xinian
 function mapSkycon(skycon) {
   const map = {
     CLEAR_DAY: [
@@ -440,14 +436,14 @@ function mapSkycon(skycon) {
       "https://raw.githubusercontent.com/58xinian/icon/master/Weather/HEAVY_SNOW",
     ],
     FOG: ["雾"],
+    WIND: ["风"],
     DUST: ["浮尘"],
     SAND: ["沙尘"],
-    WIND: ["风"],
   };
   return map[skycon];
 }
 
-// 雷达降 水/雪 强度 --> skycon
+// 雷达降水/雪强度 --> skycon
 function mapPrecipitation(intensity) {
   if (0.031 < intensity && intensity < 0.25) {
     return "LIGHT";
