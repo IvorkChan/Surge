@@ -70,28 +70,28 @@ if (-1 != $request.url.indexOf('/x/v2/reply/main') && 0 == body['code']) {
 }
 
 // 标签
-if (-1 != $request.url.indexOf('resource/show/tab?') && 0 == body['code']) {
+if (-1 != $request.url.indexOf('resource/show/tab/v2?') && 0 == body['code']) {
     body['data']['bottom'] = body['data']['bottom'].filter(function (item) {
-        return item.id != 101 && item.id != 104 && item.id != 105 && item.id != 179 && item.id != 180 && item.id !=6697
-    });
+        return item.id != 104 && item.id != 105});
     body['data']['tab'] = body['data']['tab'].filter(function (item) {
-        return item.id != 39 && item.id != 101 && item.id != 104 && item.id != 151 && item.id != 442 && item.id != 536 && item.id != 38247 && item.id != 51079 && item.id != 5878 && item.id !=6697});
+        return item.id != 442 && item.id !=136117});
     body['data']['top'] = body['data']['top'].filter(function (item) {
-        return item.id != 107 && item.id != 108 && item.id != 222});
+        return item.id != 107 && item.id != 108});
 }
 
 // 我的
 if (-1 != $request.url.indexOf('/x/v2/account/mine') && 0 == body['code']) {
     body['data']['vip_section'] = {};
     body['data']['vip_section_v2'] = {};
+    body['data']['vip_section_right'] = {};
     body['data']['sections_v2'] = body['data']['sections_v2'].filter(
         function (item, index) {
-            if (['创作中心', '创作首页', '创作学院', '打卡挑战', '有奖活动', '推荐服务'].includes(item.title)) {
+            if (['创作中心', '创作首页', 'UP主推荐', '限时福利', '有奖活动', '推荐服务'].includes(item.title)) {
                 return false;
             }
             item.items = item.items.filter(function (sections_v2_items) {
                 console.log(sections_v2_items.title);
-                if ((['我的课程', '看视频免流量', '个性装扮', '邀好友赚红包', '游戏中心', '我的钱包', '会员购中心', '直播中心', '反馈论坛', '充能领福利', '课堂模式', '青少年模式'].includes(sections_v2_items.title))) {
+                if ((['发布', '看视频免流量', '我的钱包', '会员购中心', '直播中心'].includes(sections_v2_items.title))) {
                     return false;
                 }
                 return true;
