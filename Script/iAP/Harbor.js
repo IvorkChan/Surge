@@ -19,7 +19,7 @@ obj["subscriber"]["entitlements"]= {
         "grace_period_expires_date" : null,
         "purchase_date": "2020-01-01T00:00:00Z",
         "product_identifier": "io.pixelfoundry.Harbor.yearly",
-        "expires_date": "2050-01-01T00:00:00Z",
+        "expires_date": "2050-01-01T00:00:00Z"
       }
     };
 $done({body: JSON.stringify(obj)});
