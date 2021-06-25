@@ -6,7 +6,7 @@
 
 [Script]
 verifyReceipt = requires-body=1,max-size=262144,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$|^https:\/\/www2\.https-proxy\.me\/verify$,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/verifyReceipt.js
-Airmail = requires-body=1,max-size=-1,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$),script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Airmail.js
+Harbor = requires-body=1,max-size=-1,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$),script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Harbor.js
 AltStore = requires-body=1,max-size=0,type=http-response,pattern=^https:\/\/www\.patreon\.com\/api\/oauth2\/v2\/identity,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/AltStore.js
 ColorfulWeather = requires-body=1,max-size=0,type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/ColorfulWeather.js
 Drafts = requires-body=1,max-size=-1,type=http-response,pattern=https:\/\/backend\.getdrafts\.com\/api\/.*\/verification*,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Drafts.js
