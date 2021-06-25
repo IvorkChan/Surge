@@ -17,7 +17,7 @@ obj["subscriber"]["subscriptions"]= {
 obj["subscriber"]["entitlements"]= {
       "premium": {
         "grace_period_expires_date" : null,
-        "purchase_date": "2020-01-01T00:00:00Z"
+        "purchase_date": "2020-01-01T00:00:00Z",
         "product_identifier": "io.pixelfoundry.Harbor.yearly",
         "expires_date": "2050-01-01T00:00:00Z",
       }
