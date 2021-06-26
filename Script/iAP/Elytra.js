@@ -4,8 +4,8 @@ obj =
   "status" : true,
   "subscription" : {
     "stripe" : null,
-    "expiry" : "2050-01-01T00:00:00Z",
-    "status" : 1,
+    "expiry" : null,
+    "status" : 0,
     "id" : 5357,
     "originalTransactionID" : "1000000832914633",
     "environment" : "ProductionSandbox",
