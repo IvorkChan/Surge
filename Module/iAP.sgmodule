@@ -5,19 +5,19 @@
 ^https:\/\/mobile-api\.adguard\.com\/api\/1\.0\/ios_validate_receipt$ https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/AdGuard.rsp 302
 
 [Script]
-verifyReceipt = requires-body=1,max-size=262144,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$|^https:\/\/www2\.https-proxy\.me\/verify$,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/verifyReceipt.js
+# verifyReceipt = requires-body=1,max-size=262144,type=http-response,pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$|^https:\/\/www2\.https-proxy\.me\/verify$,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/verifyReceipt.js
 Harbor = requires-body=1,max-size=-1,type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[a-zA-Z0-9_-]*$),script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Harbor.js
 AltStore = requires-body=1,max-size=0,type=http-response,pattern=^https:\/\/www\.patreon\.com\/api\/oauth2\/v2\/identity,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/AltStore.js
-ColorfulWeather = requires-body=1,max-size=0,type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/ColorfulWeather.js
-Drafts = requires-body=1,max-size=-1,type=http-response,pattern=https:\/\/backend\.getdrafts\.com\/api\/.*\/verification*,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Drafts.js
+# ColorfulWeather = requires-body=1,max-size=0,type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/ColorfulWeather.js
+# Drafts = requires-body=1,max-size=-1,type=http-response,pattern=https:\/\/backend\.getdrafts\.com\/api\/.*\/verification*,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Drafts.js
 Fantastical = requires-body=1,max-size=0,type=http-response,pattern=^https:\/\/api\.flexibits\.com\/v1\/(auth|account)\/(device|details|appstore-receipt)\/$,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Fantastical.js
 ScanScan = requires-body=1,max-size=0,type=http-response,pattern=^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/ScanScan.js
-Termius = requires-body=1,max-size=0,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Termius.js
+# Termius = requires-body=1,max-size=0,type=http-response,pattern=https:\/\/api\.termius\.com\/api\/v3\/bulk\/account\/,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Termius.js
 TextNow = requires-body=1,max-size=-1,type=http-response,pattern=^https:\/\/api\.textnow\.me\/api2.0\/users\/.*,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/TextNow.js
 Adobe = type=http-response,pattern=^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Adobe.js
 Musixmatch = type=http-response,pattern=^https:\/\/apic\.musixmatch\.com\/ws\/.*\/config\.get,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Musixmatch.js
 Documents = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.*\/documents\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/Documents.js
-VSCO = type=http-response,pattern=^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/VSCO.js
+# VSCO = type=http-response,pattern=^https?:\/\/vsco\.co\/api\/subscriptions\/2.1\/user-subscriptions\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/IvorkChan/Surge/master/Script/iAP/VSCO.js
 
 [MITM]
 hostname = %APPEND% mobile-api.adguard.com, api.revenuecat.com, backend.getdrafts.com, api.flexibits.com, baimiao.uzero.cn, api.termius.com, api.textnow.me, biz.caiyunapp.com, www.patreon.com, lcs-mobile-cops.adobe.io, apic.musixmatch.com, license.pdfexpert.com, vsco.co
